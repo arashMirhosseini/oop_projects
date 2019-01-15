@@ -7,6 +7,7 @@ class Tile
         # @board = board
         @position = position 
         @content = content
+        @reveal = false
     end
 
     def bombed?
@@ -21,11 +22,11 @@ class Tile
         false
     end
 
-    def reveal?
-        # x, y = pos
-        return true if @content == '_'
-        false
-    end
+    # def reveal?
+    #     # x, y = pos
+    #     return true if @content == '_'
+    #     false
+    # end
 
     def neighbors(board)
         i, j = position
@@ -62,7 +63,7 @@ class Tile
     end
 
 
-    attr_reader :position, :content
+    attr_accessor :position, :content, :reveal
 end
 
 # t = Tile.new([0,0], 'B')
