@@ -78,7 +78,4 @@ class Game
     attr_reader :board
 end
 
-# if __FILE__ ==$Program_Name
-#     g = Game.new
-# end
 g = Game.new

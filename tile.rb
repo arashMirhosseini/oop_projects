@@ -1,10 +1,10 @@
-# require_relative "board"
+
 require "colorize"
 
 class Tile
     
     def initialize(position, content = nil)
-        # @board = board
+       
         @position = position 
         @content = content
         @reveal = false
@@ -13,22 +13,9 @@ class Tile
     end
 
     def bombed?
-        # x, y = pos
         return true if @content == 'B'
         false
     end
-
-    def flagged?
-        # x, y = pos
-        return true if @content == "F"
-        false
-    end
-
-    # def reveal?
-    #     # x, y = pos
-    #     return true if @content == '_'
-    #     false
-    # end
 
     def neighbors(board)
         i, j = position
@@ -68,9 +55,5 @@ class Tile
         end
     end
 
-
     attr_accessor :position, :content, :reveal, :counter, :flag
 end
-
-# t = Tile.new([0,0], 'B')
-# puts t.bombed?

@@ -67,7 +67,6 @@ class Board
        
         10.times do |i|
             10.times do |j|
-                # pos = [i,j]
                 t = @board[i][j]
                 t.reveal = true
             end
@@ -92,30 +91,8 @@ class Board
 
     end
 
-    def render_debug
-        puts (0..9).to_a.unshift(" ").join(" ")
-        board.each_with_index do |row, i|
-            print i
-            row.each_with_index do |ele, j|
-                print " #{ele}"
-                # if  ele.reveal
-                #     print " #{ele}"
-                # else
-                #     print " *"
-                # end
-            end
-            puts
-        end
-
-    end
-
     def reveal_bomb_free_neighbors(pos)
-
-        # puts "pos= #{pos}"
-        tile = self[pos]
-        # if !tile.bombed?
-        #     tile.reveal = true
-        # end
+        tile = self[pos]  
         count = 0
         neighbors_ar = tile.neighbors(@board)
         neighbors_ar.each do |neighbor|
@@ -123,7 +100,7 @@ class Board
                 count += 1
             end
         end
-        # puts "count: #{count}"
+       
         tile.counter = count
         if count > 0 
             return count 
@@ -143,10 +120,4 @@ class Board
     attr_reader :board
 end
 
-#  b = Board.new
-#  c = b
-# #  b.reveal_all
-#  b.render1
-#  b.reveal_bomb_free_neighbors([3,4])
-#  b.render
-# # p b.random_pos
+
