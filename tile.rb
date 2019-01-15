@@ -9,6 +9,7 @@ class Tile
         @content = content
         @reveal = false
         @counter = 0
+        @flag = false
     end
 
     def bombed?
@@ -68,7 +69,7 @@ class Tile
     end
 
 
-    attr_accessor :position, :content, :reveal, :counter
+    attr_accessor :position, :content, :reveal, :counter, :flag
 end
 
 # t = Tile.new([0,0], 'B')

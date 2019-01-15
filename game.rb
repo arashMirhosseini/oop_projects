@@ -24,15 +24,10 @@ class Game
             if !valid_move(user_move)
                 raise "That's not valid! please enter r or f"
             end
-            r_picked(pos) if user_move == 'r'
-            board.render
-            if board[pos].bombed?
-                board.reveal_all
-                board.render
-                puts "GAME OVER!"
-                return false
-            else
-                @board.reveal_bomb_free_neighbors(pos)
+            if user_move == 'r'
+                return false if !r_picked(pos)
+            elsif user_move == 'f'
+                board[pos].flag = true
                 board.render
             end
         end
@@ -41,6 +36,16 @@ class Game
 
     def r_picked(pos)
         board[pos].reveal = true
+        if board[pos].bombed?
+            board.reveal_all
+            board.render
+            puts "GAME OVER!"
+            return false
+        else
+            @board.reveal_bomb_free_neighbors(pos)
+            board.render
+        end
+        true
     end
     
     def win? 

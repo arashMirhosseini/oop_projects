@@ -1,5 +1,6 @@
 require_relative "tile"
 require "byebug"
+require "colorize"
 
 class Board
     def initialize
@@ -78,8 +79,10 @@ class Board
         board.each_with_index do |row, i|
             print i
             row.each_with_index do |ele, j|
-                if  ele.reveal
+                if  ele.reveal && !ele.flag
                     print " #{ele}"
+                elsif ele.flag
+                    print " F".colorize(:blue)
                 else
                     print " *"
                 end
