@@ -89,7 +89,7 @@ class Board
 
     end
 
-    def render1
+    def render_debug
         puts (0..9).to_a.unshift(" ").join(" ")
         board.each_with_index do |row, i|
             print i
@@ -108,7 +108,7 @@ class Board
 
     def reveal_bomb_free_neighbors(pos)
 
-        puts "pos= #{pos}"
+        # puts "pos= #{pos}"
         tile = self[pos]
         # if !tile.bombed?
         #     tile.reveal = true
@@ -120,7 +120,8 @@ class Board
                 count += 1
             end
         end
-        puts "count: #{count}"
+        # puts "count: #{count}"
+        tile.counter = count
         if count > 0 
             return count 
         end

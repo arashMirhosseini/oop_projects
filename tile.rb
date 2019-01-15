@@ -8,7 +8,7 @@ class Tile
         @position = position 
         @content = content
         @reveal = false
-        @count = 0
+        @counter = 0
     end
 
     def bombed?
@@ -60,11 +60,15 @@ class Tile
     end
 
     def to_s
-        content.colorize(color)
+        if counter > 0 
+            counter.to_s.colorize(:green)
+        else
+            content.colorize(color)
+        end
     end
 
 
-    attr_accessor :position, :content, :reveal, :count
+    attr_accessor :position, :content, :reveal, :counter
 end
 
 # t = Tile.new([0,0], 'B')
