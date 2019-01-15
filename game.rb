@@ -31,6 +31,9 @@ class Game
                 board.render
                 puts "GAME OVER!"
                 return false
+            else
+                @board.reveal_bomb_free_neighbors(pos)
+                board.render
             end
         end
         puts "You win!"

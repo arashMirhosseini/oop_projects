@@ -110,9 +110,9 @@ class Board
 
         puts "pos= #{pos}"
         tile = self[pos]
-        if !tile.bombed?
-            tile.reveal = true
-        end
+        # if !tile.bombed?
+        #     tile.reveal = true
+        # end
         count = 0
         neighbors_ar = tile.neighbors(@board)
         neighbors_ar.each do |neighbor|
@@ -139,10 +139,10 @@ class Board
     attr_reader :board
 end
 
- b = Board.new
- c = b
-#  b.reveal_all
- b.render1
- b.reveal_bomb_free_neighbors([3,4])
- b.render
-# p b.random_pos
+#  b = Board.new
+#  c = b
+# #  b.reveal_all
+#  b.render1
+#  b.reveal_bomb_free_neighbors([3,4])
+#  b.render
+# # p b.random_pos
