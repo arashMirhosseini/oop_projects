@@ -36,6 +36,16 @@ class Tile
         neighbors_ar
     end
 
+    def neighbor_bomb_count
+        neigh = neighbors
+        count = 0
+        neigh.each do |neighbor|
+            count += 1 if neighbor.bombed? 
+        end
+        count
+    end
+
+    
     
 
     attr_reader :board, :position
