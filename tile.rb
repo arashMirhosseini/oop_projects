@@ -1,39 +1,47 @@
-require_relative "board"
+# require_relative "board"
+require "colorize"
 
 class Tile
     
-    def initialize(board, position)
-        @board = board
+    def initialize(position, content = nil)
+        # @board = board
         @position = position 
+        @content = content
     end
 
     def bombed?
-        x, y = @position
-        return true if @board[x][y] == 'B'
+        # x, y = pos
+        return true if @content == 'B'
         false
     end
 
     def flagged?
-        x, y = @position
-        return true if @board[x][y] == "F"
+        # x, y = pos
+        return true if @content == "F"
         false
     end
 
     def reveal?
-        x, y = @position
-        return true if @board[x][y] == '_'
+        # x, y = pos
+        return true if @content == '_'
         false
     end
 
-    def neighbors
-        i, j = @position
+    def neighbors(board)
+        i, j = position
         neighbors_ar = []
         x = [-1, -1, -1, 0, 0, 1, 1, 1]
         y = [-1, 0, 1, -1, 1, -1, 0, 1]
         x.each_with_index do |num, k|
-            neighbors_ar << Tile.new(board, [i+num, j+y[k]])
+            if valid_pos(i+num, j+y[k])
+                neighbors_ar << board[i+num][j+y[k]]
+            end
         end
         neighbors_ar
+    end
+
+    def valid_pos?(i,j)
+        i >= 0 && i <= 9 && j >=0 && j <= 9
     end
 
     def neighbor_bomb_count
@@ -45,8 +53,17 @@ class Tile
         count
     end
 
-    
-    
+    def color
+        content == 'B'? :red : :blue
+    end
 
-    attr_reader :board, :position
+    def to_s
+        content.colorize(color)
+    end
+
+
+    attr_reader :position, :content
 end
+
+# t = Tile.new([0,0], 'B')
+# puts t.bombed?
