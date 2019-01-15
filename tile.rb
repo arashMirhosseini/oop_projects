@@ -8,6 +8,7 @@ class Tile
         @position = position 
         @content = content
         @reveal = false
+        @count = 0
     end
 
     def bombed?
@@ -34,7 +35,7 @@ class Tile
         x = [-1, -1, -1, 0, 0, 1, 1, 1]
         y = [-1, 0, 1, -1, 1, -1, 0, 1]
         x.each_with_index do |num, k|
-            if valid_pos(i+num, j+y[k])
+            if valid_pos?(i+num, j+y[k])
                 neighbors_ar << board[i+num][j+y[k]]
             end
         end
@@ -63,7 +64,7 @@ class Tile
     end
 
 
-    attr_accessor :position, :content, :reveal
+    attr_accessor :position, :content, :reveal, :count
 end
 
 # t = Tile.new([0,0], 'B')
