@@ -9,7 +9,7 @@ These games are implemeted using Ruby.
   
   3. Click on the link here for further instruction and demo
   
-      - Chess game 
+      - [Chess](https://github.com/arashMirhosseini/oop_projects/tree/master/chess)
       - [Sudoku](https://github.com/arashMirhosseini/oop_projects/tree/master/sudoku)
     
 
