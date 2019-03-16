@@ -1,4 +1,4 @@
 # Object-Oriented Programming Projects 
 
 - Chess game 
-- Sudoku 
+- [Sudoku](https://github.com/arashMirhosseini/oop_projects/tree/master/sudoku)
