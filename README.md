@@ -15,5 +15,6 @@ OOP practices and projects implemeted using Ruby.
       - [LRU HashMap](https://github.com/arashMirhosseini/oop_projects/tree/master/hashMap_lru)
       - [Mancala](https://github.com/arashMirhosseini/oop_projects/tree/master/mancala)
       - [Minesweeper](https://github.com/arashMirhosseini/oop_projects/tree/master/minesweeper)
+      - [MazeSolver](https://github.com/arashMirhosseini/oop_projects/tree/master/minesweeper)
     
 
