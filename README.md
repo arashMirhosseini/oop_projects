@@ -14,5 +14,6 @@ OOP practices and projects implemeted using Ruby.
       - [TicTacToe](https://github.com/arashMirhosseini/oop_projects/tree/master/tictactoe)
       - [LRU HashMap](https://github.com/arashMirhosseini/oop_projects/tree/master/hashMap_lru)
       - [Mancala](https://github.com/arashMirhosseini/oop_projects/tree/master/mancala)
+      - [Minesweeper](https://github.com/arashMirhosseini/oop_projects/tree/master/minesweeper)
     
 
