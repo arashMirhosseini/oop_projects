@@ -11,5 +11,8 @@ These games are implemeted using Ruby.
   
       - [Chess](https://github.com/arashMirhosseini/oop_projects/tree/master/chess)
       - [Sudoku](https://github.com/arashMirhosseini/oop_projects/tree/master/sudoku)
+      - [TicTacToe](https://github.com/arashMirhosseini/oop_projects/tree/master/tictactoe)
+      - [LRU HashMap](https://github.com/arashMirhosseini/oop_projects/tree/master/hashMap_lru)
+      - [Mancala](https://github.com/arashMirhosseini/oop_projects/tree/master/mancala)
     
 
