@@ -36,11 +36,6 @@ class Board
     end
 
     def solved_row?
-        # grid.each do |row|
-        #    if (1..9).to_a != row.sort
-        #     return false
-        # end
-        # return true
         grid.all? do |row|
             arr = []
             row.each_with_index do |tile, i|
@@ -52,8 +47,6 @@ class Board
 
     def solved_column?
         grid_transpose = grid.transpose 
-        # grid_transpose.solved_row?
-        # grid_transpose.all? {|row| row.sort == (1..9).to_a}
         grid_transpose.all? do |row|
             arr = []
             row.each_with_index do |tile, i|
@@ -102,25 +95,16 @@ class Board
     end
 
     def render
-        # row_num = @grid.length 
-        # col_num = @grid[0].length 
-        row_num = 9
-        col_num = 9
-        row_num.times do |i|
-            col_num.times do |j|
-                print @grid[i][j].to_s + " "
-            end
-            puts
+        # byebug
+        puts "  #{(0..8).to_a.join(' ')}"
+        grid.each_with_index do |row, i|
+            puts "#{i} #{row.join(' ')}"
         end
     end
 
-    # def render
-    #     # byebug
-    #     puts "  #{(0..8).to_a.join(' ')}"
-    #     grid.each_with_index do |row, i|
-    #         puts "#{i} #{row.join(' ')}"
-    #     end
-    # end
+    def size
+        grid.size
+    end
 
     private
     attr_reader :grid

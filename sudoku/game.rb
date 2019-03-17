@@ -3,38 +3,72 @@ class Game
     
     def initialize(board)
         @board = board
-        play
+        run
     end
 
-    def prompt
-        puts "please enter your selected position: "
-        pos_input = gets.chomp
-        puts "Please enter your value: "
-        val_input = gets.chomp 
-        position = [pos_input[0].to_i, pos_input[1].to_i]
-        if position[0] > 8 || position[0] < 0 || position[1] > 8 || position[1] < 0 
-            puts "wrong range!"
-        else
-            value = val_input.to_i
-           return [position, value]
+    def run
+        play_turn until solved?
+        board.render
+        puts "Congratulations, you win!"
+    end
+
+    def solved?
+        board.solved?
+    end
+
+    def play_turn
+        board.render
+        pos = get_pos
+        val = get_val
+        board[pos] = val
+    end
+
+    def get_pos
+        pos = nil
+        until pos && valid_pos?(pos)
+        puts "Please enter a position on the board (e.g., '3,4')"
+        print "> "
+        pos = parse_pos(gets.chomp)
         end
-        prompt
+        pos
+    end
+
+    def get_val
+        val = nil
+        until val && valid_val?(val)
+        puts "Please enter a value between 1 and 9 (0 to clear the tile)"
+        print "> "
+        val = parse_val(gets.chomp)
+        end
+        val
+    end
+
+    def parse_pos(string)
+        string.split(",").map { |char| Integer(char) }
+    end
+
+    def parse_val(string)
+        Integer(string)
+    end
+
+    def valid_pos?(pos)
+        pos.is_a?(Array) &&
+        pos.length == 2 &&
+        pos.all? { |x| x.between?(0, board.size - 1) }
+    end
+
+    def valid_val?(val)
+        val.is_a?(Integer) &&
+        val.between?(0, 9)
     end
     
     def render
-        @board.render 
+        board.render 
     end
 
-    def play
-        render
-        until @board.solved? 
-            position_value = prompt
-            position = position_value[0]
-            value = position_value[1]
-            @board[position] = value
-            render
-        end
-    end
+    private
+  
+    attr_reader :board
 end
 
 board = Board.new(Board.from_file("sudoku1.txt"))
