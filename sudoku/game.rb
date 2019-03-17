@@ -21,6 +21,7 @@ class Game
         pos = get_pos
         val = get_val
         board[pos] = val
+        system("clear")
     end
 
     def get_pos
