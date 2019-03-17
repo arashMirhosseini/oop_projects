@@ -1,6 +1,6 @@
 # Object-Oriented Programming Projects 
 
-These games are implemeted using Ruby.
+OOP practices and projects implemeted using Ruby.
 
 ### How to play?
   1. Download this repository from github and extract the folder.
