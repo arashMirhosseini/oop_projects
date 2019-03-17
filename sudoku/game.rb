@@ -3,6 +3,7 @@ class Game
     
     def initialize(board)
         @board = board
+        play
     end
 
     def prompt
@@ -35,3 +36,6 @@ class Game
         end
     end
 end
+
+board = Board.new(Board.from_file("sudoku1.txt"))
+Game.new(board)

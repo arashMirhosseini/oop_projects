@@ -4,14 +4,11 @@ class Board
     
 
     def self.from_file(filename)
-    rows = File.readlines(filename).map(&:chomp)
-    tiles = rows.map do |row|
-      nums = row.split("").map { |char| Integer(char) }
-      nums.map { |num| Tile.new(num) }
-    end
-    # byebug
-    # self.new(tiles)
-    # byebug
+        rows = File.readlines(filename).map(&:chomp)
+        tiles = rows.map do |row|
+            nums = row.split("").map { |char| Integer(char) }
+            nums.map { |num| Tile.new(num) }
+        end
     end
 
     def self.empty_grid
@@ -128,15 +125,3 @@ class Board
     private
     attr_reader :grid
 end
-
-# board = Board.new(Board.from_file("sudoku1_solved.txt"))
-# board = Board.new
-# board.render
-# b = Board.new
-# b.render
-# board[[0,0]] = 4 
-# board.render 
-# puts board.solved?
-# puts board.solved_row?
-# puts board.solved_column?
-# puts board.solved_square?
