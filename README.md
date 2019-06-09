@@ -9,7 +9,7 @@ OOP practices and projects implemeted using Ruby.
   
   3. Click on the link here for further instruction and demo
   
-      - [Chess](https://github.com/arashMirhosseini/oop_projects/tree/master/chess)
+      - [Chess](https://github.com/arashMirhosseini/OOP_project_cs520/tree/master)
       - [Sudoku](https://github.com/arashMirhosseini/oop_projects/tree/master/sudoku)
       - [TicTacToe](https://github.com/arashMirhosseini/oop_projects/tree/master/tictactoe)
       - [LRU HashMap](https://github.com/arashMirhosseini/oop_projects/tree/master/hashMap_lru)
